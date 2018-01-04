@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66428342-76b2-4ce2-9e2d-7ed4916f9932" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Utils/BaseTest.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/BaseTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -40,8 +41,8 @@
       <file leaf-file-name="BaseTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Utils/BaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+            <state relative-caret-position="104">
+              <caret line="70" column="8" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -82,7 +83,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-278" />
+    <option name="x" value="73" />
     <option name="y" value="22" />
     <option name="width" value="1330" />
     <option name="height" value="848" />
@@ -262,7 +263,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-278" y="22" width="1330" height="848" extended-state="0" />
+    <frame x="73" y="22" width="1330" height="848" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -338,8 +339,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utils/BaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        <state relative-caret-position="104">
+          <caret line="70" column="8" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
           <folding />
         </state>
       </provider>
