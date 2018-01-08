@@ -25,9 +25,8 @@ public class EditNamePage extends BaseTest {
         return this;
     }
 
-    public EditNamePage clickOkButton() {
+    public void clickOkButton() {
        this.okButton.click();
-       return this;
     }
 
 
