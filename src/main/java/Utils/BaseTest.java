@@ -65,7 +65,7 @@ public class BaseTest {
         killUiAutomatorServer();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Samsung Galaxy S7 edge");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Moto G5");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(AndroidMobileCapabilityType.NO_SIGN, "true");
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "us.moviemates");
