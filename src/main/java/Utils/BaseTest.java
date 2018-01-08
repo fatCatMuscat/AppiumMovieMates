@@ -36,9 +36,9 @@ public class BaseTest {
         }
     }
 
-    protected void waitForElementToLoad(MobileElement id) {
+    protected void waitForElementToLoad(MobileElement MobileElement) {
         WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.elementToBeClickable(id));
+        wait.until(ExpectedConditions.elementToBeClickable(MobileElement));
     }
 
     protected static boolean waitForAttributeToBeVisible(By by, String attribute, String textToWait) {
