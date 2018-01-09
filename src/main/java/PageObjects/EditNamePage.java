@@ -25,8 +25,9 @@ public class EditNamePage extends BaseTest {
         return this;
     }
 
-    public void clickOkButton() {
-       this.okButton.click();
+    public ProfilePage clickOkButton() {
+        okButton.click();
+        return new ProfilePage();
     }
 
 

@@ -12,7 +12,7 @@ public class MoviesPage extends BaseTest {
         waitForElementToLoad(profileButton);
     }
 
-    public ProfilePage clickOnProfileButton() {
+    public ProfilePage clickProfileButton() {
         this.profileButton.click();
         return new ProfilePage();
     }

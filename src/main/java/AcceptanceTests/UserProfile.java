@@ -1,6 +1,7 @@
 
         package AcceptanceTests;
 
+        import PageObjects.MoviesPage;
         import Utils.BaseTest;
         import io.appium.java_client.MobileElement;
         import org.openqa.selenium.By;
@@ -77,5 +78,16 @@ public class UserProfile extends BaseTest {
         Assert.assertEquals(checkTextField.getText(), previousName);
     }
 
-    //MASTER YODA
+    @Test
+    public void changeNamePOM() {
+
+        MoviesPage moviesPage = new MoviesPage();
+        String newName = "Karkusha";
+        MoviesPage secondMoviesPage = moviesPage.clickProfileButton().clickEditName().removeName().enterName(newName).clickOkButton().clickMoviesButton();
+        String currentName = secondMoviesPage.clickProfileButton().getCurrentName();
+        System.out.println(currentName);
+        Assert.assertEquals(currentName, "Sanyok");
+
+
+    }
 }
