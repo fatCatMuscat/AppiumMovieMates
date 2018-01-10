@@ -2,15 +2,13 @@
         package AcceptanceTests;
 
         import PageObjects.MoviesPage;
-        import Utils.BaseTest;
-        import io.appium.java_client.MobileElement;
-        import org.openqa.selenium.By;
-        import org.testng.Assert;
-        import org.testng.annotations.*;
+import Utils.BaseTest;
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-/**
- * Created by idorovskikh on 1/18/17.
- */
 public class UserProfile extends BaseTest {
 
     @BeforeMethod
@@ -33,49 +31,6 @@ public class UserProfile extends BaseTest {
     public void afterEachTest() {
         System.out.println("Resetting App");
         driver.resetApp();
-    }
-
-    @Test
-    public void changeName() {
-        MobileElement profileButton = (MobileElement) driver.findElementById("btnHamburger");
-        profileButton.click();
-
-        MobileElement nameEdit = (MobileElement) driver.findElementById("ivName");
-        nameEdit.click();
-
-        MobileElement nameTextField = (MobileElement) driver.findElementById("edit_text");
-        MobileElement okButtonAfterNameChanging = (MobileElement) driver.findElementById("android:id/button1");
-        nameTextField.clear();
-        String newName = "Boris";
-        nameTextField.sendKeys(newName);
-        driver.hideKeyboard();
-        okButtonAfterNameChanging.click();
-
-        MobileElement checkTextField = (MobileElement) driver.findElementById("tvNameValue");
-        Assert.assertEquals(checkTextField.getText(), newName);
-    }
-    @Test
-    public void changeNameOneChar() {
-        MobileElement profileButton = (MobileElement) driver.findElementById("btnHamburger");
-        profileButton.click();
-
-        MobileElement nameEdit = (MobileElement) driver.findElementById("ivName");
-        nameEdit.click();
-
-        MobileElement nameTextField = (MobileElement) driver.findElementById("edit_text");
-        MobileElement okButtonAfterNameChanging = (MobileElement) driver.findElementById("android:id/button1");
-
-        String previousName = nameTextField.getText();
-
-        nameTextField.clear();
-        String newName = "v";
-        nameTextField.sendKeys(newName);
-        driver.hideKeyboard();
-        okButtonAfterNameChanging.click();
-
-        MobileElement checkTextField = (MobileElement) driver.findElementById("tvNameValue");
-
-        Assert.assertEquals(checkTextField.getText(), previousName);
     }
 
     @Test
