@@ -16,8 +16,4 @@ public class DateFactory {
         System.out.println(String.valueOf(todayPlusDays.getDayOfWeek()));
     }
 
-    public
-
-
-
 }
