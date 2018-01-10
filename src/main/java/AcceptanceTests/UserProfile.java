@@ -83,10 +83,11 @@ public class UserProfile extends BaseTest {
 
         MoviesPage moviesPage = new MoviesPage();
         String newName = "Karkusha";
-        MoviesPage secondMoviesPage = moviesPage.clickProfileButton().clickEditName().removeName().enterName(newName).clickOkButton().clickMoviesButton();
+        MoviesPage secondMoviesPage = moviesPage.clickProfileButton().clickEditName().removeName()
+                .enterName(newName).clickOkButton().clickMoviesButton();
         String currentName = secondMoviesPage.clickProfileButton().getCurrentName();
         System.out.println(currentName);
-        Assert.assertEquals(currentName, "Sanyok");
+        Assert.assertEquals(currentName, newName);
 
 
     }
