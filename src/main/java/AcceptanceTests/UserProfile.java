@@ -7,7 +7,8 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+        import org.testng.annotations.DataProvider;
+        import org.testng.annotations.Test;
 
 public class UserProfile extends BaseTest {
 
@@ -33,10 +34,18 @@ public class UserProfile extends BaseTest {
         driver.resetApp();
     }
 
-    @Test
-    public void changeNamePOM() {
+    @DataProvider(name = "validNamesProvider")
+    public Object[][] getValidNames() {
+        return new Object[][] {
+                {"Hruysha", "Filya"},
+                {"Karkusha", "Stepashka"},
+        };
+    }
+
+    @Test(dataProvider = "validNamesProvider")
+    public void changeNamePOM(String[] validNames) {
         MoviesScreen moviesScreen = new MoviesScreen();
-        String newName = "Pikachu";
+        String newName = validNames[0];
         MoviesScreen secondMoviesScreen = moviesScreen.clickProfileButton().clickEditName().removeName()
                 .enterName(newName).clickOkButton().clickMoviesButton();
         String currentName = secondMoviesScreen.clickProfileButton().getCurrentName();
