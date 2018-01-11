@@ -1,7 +1,7 @@
 
         package AcceptanceTests;
 
-        import PageObjects.MoviesScreen;
+        import ScreenObjects.MoviesScreen;
 import Utils.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -35,15 +35,15 @@ public class UserProfile extends BaseTest {
 
     @Test
     public void changeNamePOM() {
-
         MoviesScreen moviesScreen = new MoviesScreen();
-        String newName = "Karkusha";
+        String newName = "Pikachu";
         MoviesScreen secondMoviesScreen = moviesScreen.clickProfileButton().clickEditName().removeName()
                 .enterName(newName).clickOkButton().clickMoviesButton();
         String currentName = secondMoviesScreen.clickProfileButton().getCurrentName();
         System.out.println(currentName);
         Assert.assertEquals(currentName, newName);
-
-
     }
+
+
+
 }

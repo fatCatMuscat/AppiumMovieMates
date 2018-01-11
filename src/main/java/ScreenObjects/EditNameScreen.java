@@ -1,4 +1,4 @@
-package PageObjects;
+package ScreenObjects;
 
 import Utils.BaseTest;
 import io.appium.java_client.MobileElement;
