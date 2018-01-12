@@ -1,6 +1,8 @@
 
         package AcceptanceTests;
 
+        import ScreenFactories.MoviesScreenFactory;
+        import ScreenObjects.LoginScreen;
         import ScreenObjects.MoviesScreen;
 import Utils.BaseTest;
 import org.openqa.selenium.By;
@@ -12,19 +14,22 @@ import org.testng.annotations.BeforeMethod;
 
 public class UserProfile extends BaseTest {
 
+    public MoviesScreenFactory moviesScreenFactory = new MoviesScreenFactory();
     @BeforeMethod
     private void successfulGoogleLoginWithValidCredential() {
         System.out.println("login");
-        driver.findElement(By.id("btnGoogleLogin")).click();
-        driver.findElement(By.id("android:id/text1")).click();
-        driver.findElement(By.id("android:id/button1")).click();
+
+        LoginScreen loginScreen = new LoginScreen();
+
+        loginScreen.clickLoginGoogleBtn();
+        loginScreen.clickFirstAccountRadioBtn();
+        loginScreen.clickOkBtn();
 
         Boolean result = elementIsNotPresent(By.id("com.android.packageinstaller:id/permission_allow_button"));
         if (!result) {
             //driver.switchTo().alert().accept(); DOES NOT WORK!!!!
             driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
         }
-
         Assert.assertTrue(driver.findElementById("btnHamburger").isDisplayed());
     }
 
