@@ -1,20 +1,18 @@
 
         package AcceptanceTests;
 
-        import ScreenFactories.MoviesScreenFactory;
         import ScreenObjects.LoginScreen;
-        import ScreenObjects.MoviesScreen;
-        import Utils.BaseTest;
-        import org.openqa.selenium.By;
-        import org.testng.Assert;
-        import org.testng.annotations.AfterMethod;
-        import org.testng.annotations.BeforeMethod;
-        import org.testng.annotations.DataProvider;
-        import org.testng.annotations.Test;
+import ScreenObjects.MoviesScreen;
+import Utils.BaseTest;
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 public class UserProfile extends BaseTest {
 
-    public MoviesScreenFactory moviesScreenFactory = new MoviesScreenFactory();
     @BeforeMethod
     private void successfulGoogleLoginWithValidCredential() {
         LoginScreen loginScreen = new LoginScreen();
@@ -53,6 +51,10 @@ public class UserProfile extends BaseTest {
         };
     }
 
+    //                                  *******  UI  ********
+
+
+    // verifying valid name input saves in user name in profile settings
     @Test(dataProvider = "validNamesProvider")
     public void changeValidName(String[] validNames) {
         MoviesScreen moviesScreen = new MoviesScreen();
@@ -65,6 +67,7 @@ public class UserProfile extends BaseTest {
         Assert.assertEquals(currentName, newName);
     }
 
+    // verifying that user name > 50 chars gets truncated to 50 chars
     @Test(dataProvider = "longNamesProvider")
     public void nameMorethan50Char(String[] longNames) {
         MoviesScreen moviesScreen = new MoviesScreen();
@@ -73,11 +76,17 @@ public class UserProfile extends BaseTest {
                 .clickEditName().removeName().enterName(newName)
                 .clickOkButton().clickMoviesButton();
         String currentName = secondMoviesScreen.clickProfileButton().getCurrentName();
-        System.out.println(currentName);
-        Assert.assertNotEquals(currentName, newName);
+
+        Assert.assertEquals(currentName, newName.substring(0, 50));
     }
 
+    @Test
+    public void markMovieInterested() {
+        MoviesScreen moviesScreen = new MoviesScreen();
 
+
+
+    }
 
 
 
