@@ -19,5 +19,21 @@ public class MoviesScreen extends BaseTest {
         return new ProfileScreen();
     }
 
+    public void clickInterested (int buttonIndex) {
+        moviesScreenFactory.interestedBtns.get(buttonIndex).click();
+    }
+
+    public void clickInterested() {
+        moviesScreenFactory.interestedButton.click();
+    }
+
+    public MovieDetailsScreen clickMovieNode(int nodeIndex) {
+        moviesScreenFactory.movieNodes.get(nodeIndex).click();
+        return new MovieDetailsScreen();
+    }
+
+
+
+
 
 }

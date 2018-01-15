@@ -1,7 +1,8 @@
 
-        package AcceptanceTests;
+package AcceptanceTests;
 
-        import ScreenObjects.LoginScreen;
+import ScreenObjects.LoginScreen;
+import ScreenObjects.MovieDetailsScreen;
 import ScreenObjects.MoviesScreen;
 import Utils.BaseTest;
 import org.openqa.selenium.By;
@@ -51,6 +52,14 @@ public class UserProfile extends BaseTest {
         };
     }
 
+    @DataProvider(name = "intProvider")
+    public Object[][] getInt() {
+        return new Object[][] {
+                {1},
+                {3}
+        };
+    }
+
     //                                  *******  UI  ********
 
 
@@ -83,11 +92,18 @@ public class UserProfile extends BaseTest {
     @Test
     public void markMovieInterested() {
         MoviesScreen moviesScreen = new MoviesScreen();
-
-
-
+        moviesScreen.clickInterested(1);
+        Assert.assertTrue(!elementIsNotPresent(By.id("iv_movie_date_active_select")));
     }
 
+    @Test(dataProvider = "intProvider")
+    public void verifyInterestedInMovieDetails(int[] ints) {
+        MoviesScreen moviesScreen = new MoviesScreen();
+        moviesScreen.clickInterested(ints[0]);
+        MovieDetailsScreen movieDetailScreen = moviesScreen.clickMovieNode(ints[0]);
+        if (movieDetailScreen.isMarkedInterested()) System.out.println("**** IT IS MARKED ****");
+        else System.out.println("MOVIE IS NOT MARKED INTERESTED BRO");
+    }
 
 
 
