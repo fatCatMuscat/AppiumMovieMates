@@ -29,13 +29,13 @@ public class MoviesScreenFactory {
     public List<MobileElement> interestedBtns;
 
     @AndroidFindBy(id = "tv_date_picker_month_name")
-    public MobileElement month;
+    public List<MobileElement> month;
 
     @AndroidFindBy(id = "tv_date_picker_day")
-    public MobileElement dayOfMonth;
+    public List <MobileElement> dayOfMonth;
 
     @AndroidFindBy(id = "tv_date_picker_day_name")
-    public MobileElement dayOfWeek;
+    public List <MobileElement> dayOfWeek;
 
 
 

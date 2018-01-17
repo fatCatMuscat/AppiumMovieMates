@@ -5,7 +5,6 @@ import ScreenObjects.LoginScreen;
 import ScreenObjects.MovieDetailsScreen;
 import ScreenObjects.MoviesScreen;
 import Utils.BaseTest;
-import Utils.DateFactory;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -107,15 +106,9 @@ public class UserProfile extends BaseTest {
     }
 
     @Test
-    public void printDate() {
-        DateFactory dateFactory = new DateFactory();
-        System.out.println(dateFactory.getCurrentWeekDay());
-        System.out.println();
-        System.out.println(dateFactory.getCurrentDayInt());
-        System.out.println();
-        System.out.println(dateFactory.getCurrentMonth());
-        String string = "sasiska";
-
+    public void verifyCurrentDateDisplayedFirst() {
+        MoviesScreen moviesScreen = new MoviesScreen();
+        Assert.assertTrue(moviesScreen.verifyCurrentDate(0));
     }
 
 

@@ -2,6 +2,7 @@ package ScreenObjects;
 
 import ScreenFactories.MoviesScreenFactory;
 import Utils.BaseTest;
+import Utils.DateFactory;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
@@ -32,6 +33,18 @@ public class MoviesScreen extends BaseTest {
         return new MovieDetailsScreen();
     }
 
+    public boolean verifyCurrentDate(int node) {
+        DateFactory dateFactory = new DateFactory();
+        String monthName = moviesScreenFactory.month.get(node).getText();
+        String currentDayOfMonth = moviesScreenFactory.dayOfMonth.get(node).getText();
+        String currentDayOfWeek = moviesScreenFactory.dayOfWeek.get(node).getText();
+
+        String trueMonth = dateFactory.getCurrentMonth();
+        String trueDay = dateFactory.getCurrentDayInt();
+        String trueWeekDay = dateFactory.getCurrentWeekDay();
+
+        return monthName.equals(trueMonth) && currentDayOfMonth.equals(trueDay) && currentDayOfWeek.equals(trueWeekDay);
+    }
 
 
 
