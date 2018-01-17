@@ -4,8 +4,8 @@ package AcceptanceTests;
 import ScreenObjects.LoginScreen;
 import ScreenObjects.MovieDetailsScreen;
 import ScreenObjects.MoviesScreen;
-import ScreenObjects.ProfileScreen;
 import Utils.BaseTest;
+import Utils.DateFactory;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -107,11 +107,16 @@ public class UserProfile extends BaseTest {
     }
 
     @Test
-    public void clickOnDateOfBirth() {
-        MoviesScreen moviesScreen = new MoviesScreen();
-        ProfileScreen profileScreen = moviesScreen.clickProfileButton();
-        profileScreen.clickBirthdayField();
+    public void printDate() {
+        DateFactory dateFactory = new DateFactory();
+        System.out.println(dateFactory.getCurrentWeekDay());
+        System.out.println();
+        System.out.println(dateFactory.getCurrentDayInt());
+        System.out.println();
+        System.out.println(dateFactory.getCurrentMonth());
+        String string = "sasiska";
 
     }
+
 
 }

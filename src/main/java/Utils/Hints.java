@@ -15,7 +15,6 @@ public class Hints {
 
     public void getRandomInt100to200() {
         Random random = new Random();
-
         System.out.println(random.nextInt(101) + 100);
     }
 
@@ -23,5 +22,11 @@ public class Hints {
         String str = "Hello World";
         String newString = str.substring(fromWhich);
     }
+
+
+
+
+
+
 
 }
