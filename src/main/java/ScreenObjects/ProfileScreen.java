@@ -27,4 +27,10 @@ public class ProfileScreen extends BaseTest {
         return new MoviesScreen();
     }
 
+    public void clickBirthdayField() {
+        profileScreenFactory.profileScreenNodes.get(3).click();
+    }
+
+
+
 }

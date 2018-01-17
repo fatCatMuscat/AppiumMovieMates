@@ -3,6 +3,8 @@ package ScreenFactories;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
+import java.util.List;
+
 public class ProfileScreenFactory {
 
     @AndroidFindBy(id = "ivName")
@@ -14,6 +16,8 @@ public class ProfileScreenFactory {
     @AndroidFindBy(id = "llHamburger")
     public MobileElement hamburger;
 
+    @AndroidFindBy (className = "android.widget.RelativeLayout")
+    public List<MobileElement> profileScreenNodes;
 
 
 }

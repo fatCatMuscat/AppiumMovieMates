@@ -15,5 +15,4 @@ public class DateFactory {
         LocalDate todayPlusDays = today.plus(days, ChronoUnit.DAYS);
         System.out.println(String.valueOf(todayPlusDays.getDayOfWeek()));
     }
-
 }

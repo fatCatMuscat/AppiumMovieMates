@@ -4,6 +4,7 @@ package AcceptanceTests;
 import ScreenObjects.LoginScreen;
 import ScreenObjects.MovieDetailsScreen;
 import ScreenObjects.MoviesScreen;
+import ScreenObjects.ProfileScreen;
 import Utils.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -105,6 +106,12 @@ public class UserProfile extends BaseTest {
         else System.out.println("MOVIE IS NOT MARKED INTERESTED BRO");
     }
 
+    @Test
+    public void clickOnDateOfBirth() {
+        MoviesScreen moviesScreen = new MoviesScreen();
+        ProfileScreen profileScreen = moviesScreen.clickProfileButton();
+        profileScreen.clickBirthdayField();
 
+    }
 
 }
