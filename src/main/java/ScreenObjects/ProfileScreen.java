@@ -31,6 +31,9 @@ public class ProfileScreen extends BaseTest {
         profileScreenFactory.profileScreenNodes.get(3).click();
     }
 
-
+    public EditGenderScreen clickGenderNode() {
+         profileScreenFactory.profileScreenNodes.get(4).click();
+         return new EditGenderScreen();
+    }
 
 }

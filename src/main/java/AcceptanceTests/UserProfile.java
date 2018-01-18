@@ -111,5 +111,11 @@ public class UserProfile extends BaseTest {
         Assert.assertTrue(moviesScreen.verifyCurrentDate(0));
     }
 
+    @Test
+    public void changeGenderToMale() {
+        MoviesScreen moviesScreen = new MoviesScreen();
+
+    }
+
 
 }
