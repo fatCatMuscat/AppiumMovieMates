@@ -11,7 +11,7 @@ public class EditGenderScreenFactory {
     @AndroidFindBy(id = "rbFemale")
     public MobileElement femaleRadioButton;
 
-    @AndroidFindBy(id = "button1")
+    @AndroidFindBy(id = "android:id/button1")
     public MobileElement okButton;
 
     @AndroidFindBy(id = "button2")

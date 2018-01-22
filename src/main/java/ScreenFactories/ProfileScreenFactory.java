@@ -19,5 +19,8 @@ public class ProfileScreenFactory {
     @AndroidFindBy (className = "android.widget.RelativeLayout")
     public List<MobileElement> profileScreenNodes;
 
+    @AndroidFindBy (id = "tvGenderValue")
+    public MobileElement genderValue;
+
 
 }

@@ -1,9 +1,7 @@
 
 package AcceptanceTests;
 
-import ScreenObjects.LoginScreen;
-import ScreenObjects.MovieDetailsScreen;
-import ScreenObjects.MoviesScreen;
+import ScreenObjects.*;
 import Utils.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -114,6 +112,17 @@ public class UserProfile extends BaseTest {
     @Test
     public void changeGenderToMale() {
         MoviesScreen moviesScreen = new MoviesScreen();
+        ProfileScreen pfs = moviesScreen.clickProfileButton();
+        String currentGender = pfs.getGenderValue();
+        String newGender = "";
+
+        if (currentGender.equals("Male")) {
+             newGender = new ProfileScreen().clickGenderNode().checkFemale().clickOK().getGenderValue();
+        }
+        else {
+            newGender = new ProfileScreen().clickGenderNode().checkMale().clickOK().getGenderValue();
+        }
+        Assert.assertFalse(currentGender.equalsIgnoreCase(newGender));
 
     }
 
