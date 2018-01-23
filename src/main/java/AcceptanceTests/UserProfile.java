@@ -10,6 +10,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static Utils.Hints.getRandomInt;
+
 public class UserProfile extends BaseTest {
 
     @BeforeMethod
@@ -116,14 +118,35 @@ public class UserProfile extends BaseTest {
         String currentGender = pfs.getGenderValue();
         String newGender = "";
 
-        if (currentGender.equals("Male")) {
-             newGender = new ProfileScreen().clickGenderNode().checkFemale().clickOK().getGenderValue();
-        }
-        else {
-            newGender = new ProfileScreen().clickGenderNode().checkMale().clickOK().getGenderValue();
-        }
+        if (currentGender.equals("Male")) { newGender = new ProfileScreen().clickGenderNode().checkFemale().clickOK().getGenderValue(); }
+        else { newGender = new ProfileScreen().clickGenderNode().checkMale().clickOK().getGenderValue(); }
         Assert.assertFalse(currentGender.equalsIgnoreCase(newGender));
+    }
 
+    @Test
+    public void verifyTitleOfMovieOnMoviesScreenAndMovieDetails() {
+        MoviesScreen moviesScreen = new MoviesScreen();
+        int movie =  getRandomInt();
+        System.out.println("************************////////" + movie + ">>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<");
+        String title1 = moviesScreen.getMovieTitle(movie);
+        MovieDetailsScreen mds = moviesScreen.clickOnMovieTitle(movie);
+
+
+        Assert.assertEquals(mds.getMovieTitle().toLowerCase(), title1.toLowerCase());
+    }
+
+    @Test
+    public void testo(){
+        MoviesScreen moviesScreen = new MoviesScreen();
+        String city = "Saratoga";
+        String state = "CA";
+
+        EditLocationScreen edls = moviesScreen.clickProfileButton().clickLocationNode();
+        ProfileScreen ps = edls.enterNewLocation(city, state);
+        String location = ps.getCurrentLocation();
+
+        Assert.assertEquals(location, city + ", " + state);
+        // implement smart wait for location to update on profile screen after it'd been changed!!!
     }
 
 

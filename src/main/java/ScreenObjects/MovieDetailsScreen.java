@@ -18,6 +18,10 @@ public class MovieDetailsScreen extends BaseTest {
         return movieDetailsScreenFactory.activeInterestedBtn.isDisplayed();
     }
 
+    public String getMovieTitle() {
+        return movieDetailsScreenFactory.movieTitle.getText();
+    }
+
 
 
 

@@ -37,6 +37,10 @@ public class MoviesScreenFactory {
     @AndroidFindBy(id = "tv_date_picker_day_name")
     public List <MobileElement> dayOfWeek;
 
+    // don't forget to add +2 to movie index, because MOVIES MATES AND CHATS have the same id...
+    @AndroidFindBy(id = "tvTitle")
+    public List<MobileElement> movieTitles;
+
 
 
 }

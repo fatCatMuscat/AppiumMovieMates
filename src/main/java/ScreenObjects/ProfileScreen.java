@@ -40,4 +40,12 @@ public class ProfileScreen extends BaseTest {
          return profileScreenFactory.genderValue.getText();
     }
 
+    public EditLocationScreen clickLocationNode() {
+        profileScreenFactory.profileScreenNodes.get(7).click();
+        return new EditLocationScreen();
+    }
+
+    public String getCurrentLocation(){
+         return profileScreenFactory.currentLocation.getText();
+    }
 }

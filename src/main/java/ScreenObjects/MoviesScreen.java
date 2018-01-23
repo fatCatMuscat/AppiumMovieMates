@@ -46,6 +46,14 @@ public class MoviesScreen extends BaseTest {
         return monthName.equals(trueMonth) && currentDayOfMonth.equals(trueDay) && currentDayOfWeek.equals(trueWeekDay);
     }
 
+    public String getMovieTitle(int movieIndex) {
+        return moviesScreenFactory.movieTitles.get(movieIndex + 2).getText();
+    }
+
+    public MovieDetailsScreen clickOnMovieTitle (int movieIndex) {
+        moviesScreenFactory.movieTitles.get(movieIndex + 2).click();
+        return new MovieDetailsScreen();
+    }
 
 
 

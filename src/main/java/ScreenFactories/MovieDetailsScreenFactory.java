@@ -11,5 +11,7 @@ public class MovieDetailsScreenFactory {
     @AndroidFindBy(id = "ivShadowInterested")
     public MobileElement activeInterestedBtn;
 
+    @AndroidFindBy(id = "tvTitleFilm")
+    public MobileElement movieTitle;
 
 }

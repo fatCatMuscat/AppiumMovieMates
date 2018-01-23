@@ -8,9 +8,9 @@ public class Hints {
 
 
     @Test
-    public void getRandomInt() {
+    public static int getRandomInt() {
         Random random = new Random();
-        System.out.println(random.nextInt(101));
+        return random.nextInt(5);
     }
 
     public void getRandomInt100to200() {
