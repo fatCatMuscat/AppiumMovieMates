@@ -14,7 +14,7 @@ import static Utils.Hints.getRandomInt;
 
 public class UserProfile extends BaseTest {
 
-    @BeforeMethod(groups = "Acceptance2")
+    @BeforeMethod(groups = "Acceptance")
     private void successfulGoogleLoginWithValidCredential() {
         LoginScreen loginScreen = new LoginScreen();
 
@@ -30,7 +30,7 @@ public class UserProfile extends BaseTest {
         Assert.assertTrue(driver.findElementById("btnHamburger").isDisplayed());
     }
 
-    @AfterMethod(groups = "Acceptance2")
+    @AfterMethod(groups = "Acceptance")
     public void afterEachTest() {
         System.out.println("Resetting App");
         driver.resetApp();
@@ -89,7 +89,7 @@ public class UserProfile extends BaseTest {
         Assert.assertEquals(currentName, newName.substring(0, 50));
     }
 
-    @Test(groups = "Acceptance2")
+    @Test(groups = "Acceptance")
     public void markMovieInterested() {
         MoviesScreen moviesScreen = new MoviesScreen();
         moviesScreen.clickInterested(1);
