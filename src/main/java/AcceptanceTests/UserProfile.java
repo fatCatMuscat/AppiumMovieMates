@@ -14,7 +14,7 @@ import static Utils.Hints.getRandomInt;
 
 public class UserProfile extends BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(groups = "Acceptance2")
     private void successfulGoogleLoginWithValidCredential() {
         LoginScreen loginScreen = new LoginScreen();
 
@@ -30,7 +30,7 @@ public class UserProfile extends BaseTest {
         Assert.assertTrue(driver.findElementById("btnHamburger").isDisplayed());
     }
 
-    @AfterMethod
+    @AfterMethod(groups = "Acceptance2")
     public void afterEachTest() {
         System.out.println("Resetting App");
         driver.resetApp();
@@ -64,7 +64,7 @@ public class UserProfile extends BaseTest {
 
 
     // verifying valid name input saves in user name in profile settings
-    @Test(dataProvider = "validNamesProvider")
+    @Test(dataProvider = "validNamesProvider", groups = "Acceptance")
     public void changeValidName(String[] validNames) {
         MoviesScreen moviesScreen = new MoviesScreen();
         String newName = validNames[0];
@@ -77,7 +77,7 @@ public class UserProfile extends BaseTest {
     }
 
     // verifying that user name > 50 chars gets truncated to 50 chars
-    @Test(dataProvider = "longNamesProvider")
+    @Test(dataProvider = "longNamesProvider", groups = "Acceptance")
     public void nameMorethan50Char(String[] longNames) {
         MoviesScreen moviesScreen = new MoviesScreen();
         String newName = longNames[0];
@@ -89,14 +89,14 @@ public class UserProfile extends BaseTest {
         Assert.assertEquals(currentName, newName.substring(0, 50));
     }
 
-    @Test
+    @Test(groups = "Acceptance2")
     public void markMovieInterested() {
         MoviesScreen moviesScreen = new MoviesScreen();
         moviesScreen.clickInterested(1);
         Assert.assertTrue(!elementIsNotPresent(By.id("iv_movie_date_active_select")));
     }
 
-    @Test(dataProvider = "intProvider")
+    @Test(dataProvider = "intProvider", groups = "Acceptance")
     public void verifyInterestedInMovieDetails(int[] ints) {
         MoviesScreen moviesScreen = new MoviesScreen();
         moviesScreen.clickInterested(ints[0]);
@@ -105,13 +105,13 @@ public class UserProfile extends BaseTest {
         else System.out.println("MOVIE IS NOT MARKED INTERESTED BRO");
     }
 
-    @Test
+    @Test(groups = "Acceptance")
     public void verifyCurrentDateDisplayedFirst() {
         MoviesScreen moviesScreen = new MoviesScreen();
         Assert.assertTrue(moviesScreen.verifyCurrentDate(0));
     }
 
-    @Test
+    @Test(groups = "Acceptance")
     public void changeGenderToMale() {
         MoviesScreen moviesScreen = new MoviesScreen();
         ProfileScreen pfs = moviesScreen.clickProfileButton();
@@ -123,7 +123,7 @@ public class UserProfile extends BaseTest {
         Assert.assertFalse(currentGender.equalsIgnoreCase(newGender));
     }
 
-    @Test
+    @Test(groups = "Acceptance")
     public void verifyTitleOfMovieOnMoviesScreenAndMovieDetails() {
         MoviesScreen moviesScreen = new MoviesScreen();
         int movie =  getRandomInt();
@@ -135,7 +135,7 @@ public class UserProfile extends BaseTest {
         Assert.assertEquals(mds.getMovieTitle().toLowerCase(), title1.toLowerCase());
     }
 
-    @Test
+    @Test(groups = "Acceptance")
     public void changeLocation(){
         MoviesScreen moviesScreen = new MoviesScreen();
         String city = "Sunnyvale";
