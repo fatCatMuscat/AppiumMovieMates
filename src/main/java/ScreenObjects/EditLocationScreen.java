@@ -18,8 +18,6 @@ public class EditLocationScreen extends BaseTest {
         elsf.locationTextfield.clear();
         elsf.locationTextfield.sendKeys(city + ", " + state);
         elsf.okButton.click();
-
-
         return new ProfileScreen();
     }
 

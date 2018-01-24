@@ -3,6 +3,7 @@ package ScreenObjects;
 import ScreenFactories.ProfileScreenFactory;
 import Utils.BaseTest;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProfileScreen extends BaseTest {
@@ -48,4 +49,9 @@ public class ProfileScreen extends BaseTest {
     public String getCurrentLocation(){
          return profileScreenFactory.currentLocation.getText();
     }
+
+    public void waitForServerToLoadLocation(String location) {
+        waitForAttributeToBeVisible(By.id("tvLocationValue"), "text", location);
+    }
+
 }

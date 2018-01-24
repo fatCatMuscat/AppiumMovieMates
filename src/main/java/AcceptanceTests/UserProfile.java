@@ -136,17 +136,19 @@ public class UserProfile extends BaseTest {
     }
 
     @Test
-    public void testo(){
+    public void changeLocation(){
         MoviesScreen moviesScreen = new MoviesScreen();
-        String city = "Saratoga";
+        String city = "Sunnyvale";
         String state = "CA";
 
         EditLocationScreen edls = moviesScreen.clickProfileButton().clickLocationNode();
         ProfileScreen ps = edls.enterNewLocation(city, state);
+
+        ps.waitForServerToLoadLocation((city + ", " + state));
+
         String location = ps.getCurrentLocation();
 
         Assert.assertEquals(location, city + ", " + state);
-        // implement smart wait for location to update on profile screen after it'd been changed!!!
     }
 
 
