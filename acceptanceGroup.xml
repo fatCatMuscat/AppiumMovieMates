@@ -5,7 +5,7 @@
     <test name = "Acceptance">
         <groups>
             <run>
-                <include name = "Acceptance"/>
+                <include name = "Acceptance1"/>
             </run>
         </groups>
 

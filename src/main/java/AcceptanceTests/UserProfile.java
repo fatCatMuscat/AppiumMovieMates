@@ -3,6 +3,7 @@ package AcceptanceTests;
 
 import ScreenObjects.*;
 import Utils.BaseTest;
+import Utils.ServerManager;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -10,11 +11,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static Utils.Hints.getRandomInt;
 
 public class UserProfile extends BaseTest {
 
-    @BeforeMethod(groups = "Acceptance")
+    @BeforeMethod(groups = "Acceptance2")
     private void successfulGoogleLoginWithValidCredential() {
         LoginScreen loginScreen = new LoginScreen();
 
@@ -151,5 +154,10 @@ public class UserProfile extends BaseTest {
         Assert.assertEquals(location, city + ", " + state);
     }
 
+    @Test(groups = "Acceptance1")
+    public void testMyApi() throws IOException {
+        ServerManager sm = new ServerManager();
+        System.out.println(sm.getMovies());
+    }
 
 }
