@@ -10,6 +10,12 @@ public class DateFactory {
         return String.valueOf(today.getDayOfWeek());
     }
 
+    public String currentDayPlusXDays(int days) {
+        LocalDate today = LocalDate.now();
+        LocalDate next2Week = today.plus(days, ChronoUnit.DAYS);
+        return String.valueOf(next2Week.getDayOfMonth());
+    }
+
     public String getCurrentDayInt() {
         LocalDate today = LocalDate.now();
         return String.valueOf(today.getDayOfMonth());
@@ -18,12 +24,6 @@ public class DateFactory {
     public String getCurrentMonth() {
         LocalDate currentMonth = LocalDate.now();
         return String.valueOf(currentMonth.getMonth()).substring(0, 3);
-    }
-
-    public void currentDayPlusXdays(int days) {
-        LocalDate today = LocalDate.now();
-        LocalDate todayPlusDays = today.plus(days, ChronoUnit.DAYS);
-        System.out.println(String.valueOf(todayPlusDays.getDayOfWeek()));
     }
 
 

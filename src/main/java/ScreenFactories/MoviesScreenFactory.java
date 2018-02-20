@@ -41,6 +41,11 @@ public class MoviesScreenFactory {
     @AndroidFindBy(id = "tvTitle")
     public List<MobileElement> movieTitles;
 
+    @AndroidFindBy(id = "rl_date_picker_item")
+    public List<MobileElement> oneDateList;
+
+    @AndroidFindBy(id = "date_list")
+    public MobileElement allDatesContainer;
 
 
 }
