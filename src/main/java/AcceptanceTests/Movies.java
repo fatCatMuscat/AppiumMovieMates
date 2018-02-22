@@ -23,7 +23,7 @@ public class Movies extends GoogleLogin {
         moviesScreen.clickInterested(ints[0]);
         MovieDetailsScreen movieDetailScreen = moviesScreen.clickMovieNode(ints[0]);
         if (movieDetailScreen.isMarkedInterested()) System.out.println("**** IT IS MARKED ****");
-        else System.out.println("MOVIE IS NOT MARKED INTERESTED BRO");
+        else System.out.println("MOVIE IS NOT MARKED INTERESTED, BRO");
     }
 
     @Test(groups = "Acceptance")
