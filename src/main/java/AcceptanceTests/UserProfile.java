@@ -98,6 +98,6 @@ public class UserProfile extends GoogleLogin {
     public void testMyApi() throws IOException {
         ServerManager sm = new ServerManager();
         System.out.println(sm.getMovies());
-    }
+    } 
 
 }
