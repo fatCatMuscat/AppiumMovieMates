@@ -97,7 +97,8 @@ public class UserProfile extends GoogleLogin {
     @Test(groups = "Acceptance1")
     public void testMyApi() throws IOException {
         ServerManager sm = new ServerManager();
-        System.out.println(sm.getMovies());
-    } 
+        //System.out.println(sm.getMovies());
+        System.out.println(sm.getUserDetails());
+    }
 
 }
