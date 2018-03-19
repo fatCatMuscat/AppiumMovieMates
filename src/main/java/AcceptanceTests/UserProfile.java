@@ -4,7 +4,7 @@ package AcceptanceTests;
 import ScreenObjects.EditLocationScreen;
 import ScreenObjects.MoviesScreen;
 import ScreenObjects.ProfileScreen;
-import Utils.ServerManager;
+import Networking.ServerManager;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
