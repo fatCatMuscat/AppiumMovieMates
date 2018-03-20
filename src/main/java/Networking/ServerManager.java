@@ -81,7 +81,6 @@ public class ServerManager extends BaseTest {
     public void testIdMovie() throws IOException, ParseException {
         String s = "CALL ME BY YOUR NAME";
         System.out.println(getMovieId(s.toUpperCase()));
-
     }
 
 
