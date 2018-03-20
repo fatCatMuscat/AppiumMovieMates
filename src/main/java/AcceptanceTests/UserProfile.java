@@ -2,16 +2,21 @@
 package AcceptanceTests;
 
 import ScreenObjects.EditLocationScreen;
+import ScreenObjects.LoginScreen;
 import ScreenObjects.MoviesScreen;
 import ScreenObjects.ProfileScreen;
+import Utils.BaseTest;
 import Utils.ServerManager;
+import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class UserProfile extends GoogleLogin {
+public class UserProfile extends BaseTest {
 
     @DataProvider(name = "validNamesProvider")
     public Object[][] getValidNames() {
@@ -39,6 +44,28 @@ public class UserProfile extends GoogleLogin {
 
     //                                  *******  UI  ********
 
+
+    @BeforeMethod(groups = "Acceptance")
+    private void successfulGoogleLoginWithValidCredential() {
+        LoginScreen loginScreen = new LoginScreen();
+
+        loginScreen.clickLoginGoogleBtn();
+        loginScreen.clickFirstAccountRadioBtn();
+        loginScreen.clickOkBtn();
+
+        Boolean result = elementIsNotPresent(By.id("com.android.packageinstaller:id/permission_allow_button"));
+        if (!result) {
+            //driver.switchTo().alert().accept(); DOES NOT WORK!!!!
+            driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
+        }
+        Assert.assertTrue(driver.findElementById("btnHamburger").isDisplayed());
+    }
+
+    @AfterMethod(groups = "Acceptance")
+    public void afterEachTest() {
+        System.out.println("Resetting App");
+        driver.resetApp();
+    }
 
     // verifying valid name input saves in user name in profile settings
     @Test(dataProvider = "validNamesProvider", groups = "Acceptance")
@@ -94,7 +121,7 @@ public class UserProfile extends GoogleLogin {
         Assert.assertEquals(location, city + ", " + state);
     }
 
-    @Test(groups = "Acceptance1")
+    @Test(groups = "Acceptance")
     public void testMyApi() throws IOException {
         ServerManager sm = new ServerManager();
         //System.out.println(sm.getMovies());
